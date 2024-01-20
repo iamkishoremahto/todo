@@ -1,0 +1,286 @@
+
+
+
+
+.main_container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/bg-desktop-dark.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    background-color: $VeryDarkBlue;
+
+
+}
+.checkbox{
+    height: 25px;
+    width: 25px;
+    background-color: $VeryDarkGrayishBlue;
+    border: 1px solid $DarkGrayishBlue;
+    border-radius: 50%;
+}
+.container,.row_wrapper{
+    
+    height: 100%;
+}
+.row_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.col_wrapper{
+
+    max-width: 700px;
+    height: 700px;
+    width: 550px;
+
+   
+
+    .header_wrapper{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        .theme_image{
+            height: 30px;
+            width: 30px;
+            background:url('/images/icon-sun.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+         
+        }
+        .changeThemeImage{
+            background:url('/images/icon-moon.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+       
+        h3{
+            color: $LightGrayishBlue;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 10px;
+        }
+    }
+
+    .create_new_todo{
+        background-color: $VeryDarkGrayishBlue;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 10px;
+
+        input[type='text']{
+
+           
+                width: 94%;
+                height: 100%;
+                font-size: 1.5rem;
+                outline: none;
+                border: none;
+                color: $LightGrayishBlue;
+               background-color:$VeryDarkGrayishBlue ;
+                
+        }
+       
+    }
+
+    .create_new_todo_light{
+        background-color: $white;
+        input[type='text']{
+            background-color: $white;
+        }
+    }
+
+    .show_created_todo{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-top: 40px;
+        height: 80%;
+        background-color:$VeryDarkGrayishBlue ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 10px;
+
+        .all_todos{
+            width: 100%;
+            height: 100%;
+            // padding: 10px;
+            padding-left: 0;
+          overflow-y: auto;
+            li{
+                padding: 10px;
+                height: 70px;
+                width: 100%;
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                justify-content:space-between;
+                border-bottom: 1px solid $DarkGrayishBlue;
+                span{
+                    color:$LightGrayishBlue;
+                    margin-left: 10px;
+                    font-size: 1.5rem;
+                }
+                .todoListColor{
+                    color:$VeryDarkGrayishBlue; 
+                }
+                .close{
+                    display: none;
+                    cursor: pointer;
+                }
+
+                &:hover{
+                    .close{
+                        display: block;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .VeryLightGrayishBlue{
+        background-color: $white;
+    }
+}
+
+.checkbox_icon{
+    position: relative;
+    padding-left: 40px;
+
+    
+
+    &::before{
+        position: absolute;
+        content:"";
+        
+        height: 35px;
+        width: 35px;
+        transition: all ease 0.3s;
+    
+
+    
+        // background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+        border-radius: 50%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 1px solid $DarkGrayishBlue;
+        transition: background ease 0.2s;
+
+        
+
+        
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        height: 35px;
+        transition: background ease   0.2s;
+        width: 35px;
+        min-height: 35px;
+        min-width: 35px;
+        // background: url('/images/icon-check.svg');
+        
+        left: 0px;
+        z-index: 999;
+
+    }
+
+    &:hover{
+        cursor: pointer;
+        &::before{
+            border: 1px solid $LightGrayishBlue_hover;
+            
+        }
+        
+    }
+}
+.checkbox_icon_checked{
+    &::before{
+        background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        
+    }
+    &::after{
+        background: url('/images/icon-check.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+}
+
+input[type='checkbox']{
+   
+    display: none;
+
+    
+}
+
+
+
+
+input[type='checkbox']:checked   {
+
+
+    ~ span{
+  
+        text-decoration:line-through;
+    }
+}
+
+
+
+
+.todo_details{
+    display: flex;
+   
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    color: $DarkGrayishBlue;
+ 
+
+    .btnStyle{
+        background-color: transparent;
+        transition: color ease-in-out 0.3s;
+        border: none;
+        outline: none;
+        color: $DarkGrayishBlue;
+
+
+        &:hover{
+            color: $Bright_Blue;
+        }
+    }
+
+    .filter{
+      
+        display: flex;justify-content: space-between;
+        width: 200px;
+
+        input{
+            visibility: hidden;
+        }
+
+    }
+}
+
+.veryWhiteColorBackground{
+    background-color: $VeryLightGray;
+}
+
+
+

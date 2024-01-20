@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/scss/css/style.css">
+
+</head>
+<body>
+    
+    <div class="main_container container-fluid">
+
+        <div class="container">
+            <div class="row row_wrapper">
+                <div class="col col_wrapper">
+
+                    <div class="header_wrapper">
+                        <h3>TODO</h3>
+                        <div class="theme_image"></div>
+                    </div>
+                    <div class="create_new_todo">
+                        <input type="checkbox" name="new_todo" id="new_todo" >
+                        <input type="text" class="checkbox_icon" name="new_todo_input" id="new_todo_input" placeholder="Create a new todo...">
+                    </div>
+
+                    <div class="show_created_todo">
+                        <ul class="all_todos">
+                            <!-- <li><label class="checkbox_icon "><input type="checkbox" name="todo" checked><span>Complete online JavaScript course</span></label><span class="close"><img src="/images/icon-cross.svg" alt="close"></span></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon "><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li>
+                            <li><label class="checkbox_icon"><input type="checkbox" name="todo"><span>Complete online JavaScript course</span></label></li> -->
+                        </ul>
+                        <div class="todo_details">
+                            <div class="remining">
+                                <p><span class="count">5</span> items left</p>
+                            </div>
+                            <div class="filter">
+                                <label  for="filter" class="btnStyle"><input id="all"  name="filter" type="radio" checked >All</label>
+                                <label   for="filter"  class="btnStyle"><input id="active" name="filter" type="radio" >Active</label>
+                                <label  for="filter" class="btnStyle"><input id="completed" name="filter" type="radio">Completed</label>
+                            </div>
+                            <div class="action">
+                                <button id="clear" class="btnStyle">Clear Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
