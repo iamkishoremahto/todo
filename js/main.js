@@ -29,29 +29,25 @@ function showTodoList() {
   let all_todo = document.querySelector('.all_todos');
   all_todo.innerHTML = ``;
   var todoData = JSON.parse(localStorage.getItem('todo_data'));
-  if(todoData){
 
-    Object.entries(todoData).reverse().forEach(([value, status]) => {
-      if (filter === 'all') {
+
+  Object.entries(todoData).reverse().forEach(([value, status]) => {
+    if (filter === 'all') {
+      createNewTodoListItem(value, status)
+    }
+    else if (filter === 'active') {
+      if (!status) {
         createNewTodoListItem(value, status)
       }
-      else if (filter === 'active') {
-        if (!status) {
-          createNewTodoListItem(value, status)
-        }
+    }
+    else if (filter === 'completed') {
+      if (status) {
+        createNewTodoListItem(value, status)
       }
-      else if (filter === 'completed') {
-        if (status) {
-          createNewTodoListItem(value, status)
-        }
-      }
-  
-  
-    })
-  }
+    }
 
 
-  
+  })
 
   let themeButton = document.querySelector('.theme_image');
   if (themeButton.classList.contains('changeThemeImage')) {
@@ -247,9 +243,14 @@ function themeHandler() {
 
 
 
+try{
+  filterHandler();
+  showTodoList();
+}
+catch(e) {
+  console.error(e);
+}
 
-filterHandler();
-showTodoList();
 saveTodoInput();
 themeHandler();
 clearCompletedHandler();
