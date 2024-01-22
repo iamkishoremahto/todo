@@ -147,7 +147,15 @@ function addTodoToLocalStorage(value) {
 function localStorageObjectHandler(value) {
   var todoData = localStorage.getItem('todo_data');
   if (todoData === null) {
-    localStorage.setItem('todo_data', JSON.stringify({}));
+    let data = {
+      "Complete Todo App on frontend mentor":false,
+      "Pick up groceries":false,
+      "Read for 1 hour":false,
+      "10 minutes meditation":false,
+      "Jog around the park 3x":false,
+      "Complete online JavaScript course":true,
+    }
+    localStorage.setItem('todo_data', JSON.stringify(data));
   }
   else {
     addTodoToLocalStorage(value)
