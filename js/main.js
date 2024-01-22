@@ -158,8 +158,11 @@ function localStorageObjectHandler(value) {
     localStorage.setItem('todo_data', JSON.stringify(data));
   }
   else {
-    addTodoToLocalStorage(value)
-    showTodoList()
+    if (value !== undefined){
+      addTodoToLocalStorage(value)
+      showTodoList()
+    }
+    
   }
 }
 
