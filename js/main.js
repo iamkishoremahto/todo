@@ -134,12 +134,10 @@ function saveTodoInput() {
 
 
 
-
-
 function addTodoToLocalStorage(value) {
   var todoData = JSON.parse(localStorage.getItem('todo_data'));
   todoData[value] = false;
-  // localStorage.setItem('todo_data', JSON.stringify(todoData));
+
   saveTodoDataObject(todoData);
 
 
@@ -158,13 +156,15 @@ function localStorageObjectHandler(value) {
 }
 
 function updateLeftTodoCount() {
-  let todoCheckBox = document.querySelectorAll('.all_todos input[type="checkbox"]');
+  var todoData = JSON.parse(localStorage.getItem('todo_data'));
+
   let count = 0;
-  todoCheckBox.forEach((item) => {
-    if (!item.checked) {
-      count++;
+  Object.entries(todoData).reverse().forEach(([value, status]) =>{
+    if (!status){
+      count ++;
     }
   })
+
 
   let countElement = document.querySelector('.count')
   countElement.textContent = count;
@@ -203,32 +203,52 @@ function clearCompletedHandler() {
 
 
 }
+function changeMobileBackground(){
+  var mainBackground = document.querySelector('.main_container');
+  var screenWidth = window.innerWidth;
+  console.log(screenWidth)
+  console.log(mainBackground.classList.contains('veryWhiteColorBackground'))
+  if (screenWidth >0 && screenWidth <=756 && mainBackground.classList.contains('veryWhiteColorBackground')){
+    mainBackground.classList.add('changeBackgroundInMobileLight')
+
+  }
+  else{
+    mainBackground.classList.remove('changeBackgroundInMobileLight')
+    
+  }
+}
 
 function themeHandler() {
   var themeButton = document.querySelector('.theme_image');
   themeButton.addEventListener('click', () => {
+    
     let mainBackground = document.querySelector('.main_container');
     let showTodo = document.querySelector('.show_created_todo')
     let todoList = document.querySelectorAll('.all_todos li span');
     let create_new_todo = document.querySelector('.create_new_todo');
+    let filter = document.querySelector('.filter')
 
     themeButton.classList.toggle('changeThemeImage');
     mainBackground.classList.toggle('veryWhiteColorBackground')
     showTodo.classList.toggle('VeryLightGrayishBlue')
     create_new_todo.classList.toggle('create_new_todo_light')
+    filter.classList.toggle('filter_mobile');
     todoList.forEach((item) => {
       item.classList.toggle('todoListColor')
     })
+    changeMobileBackground();
   });
 
 }
 
 
+
+
 filterHandler();
-showTodoList()
-saveTodoInput()
+showTodoList();
+saveTodoInput();
 themeHandler();
-clearCompletedHandler()
+clearCompletedHandler();
 
 
 

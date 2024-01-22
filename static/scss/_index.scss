@@ -1,9 +1,17 @@
 
+body{
+    overflow-y: auto;
+   min-height: max-content;
 
+   height : 100vh;
+}
 
 
 .main_container{
-    height: 100vh;
+    // min-height: 100%;
+    // max-height: 100vh;;
+    height: 100%;
+    // overflow: auto;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -13,6 +21,7 @@
     background-position: top;
     background-size: contain;
     background-color: $VeryDarkBlue;
+    transition: all ease 0.5s;
 
 
 }
@@ -24,13 +33,15 @@
     border-radius: 50%;
 }
 .container,.row_wrapper{
+   
     
     height: 100%;
 }
 .row_wrapper{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 40px;
     
 
 }
@@ -50,6 +61,7 @@
         .theme_image{
             height: 30px;
             width: 30px;
+            transition: all ease 0.3s;
             background:url('/images/icon-sun.svg');
             background-size: contain;
             background-repeat: no-repeat;
@@ -245,6 +257,7 @@ input[type='checkbox']:checked   {
 
 .todo_details{
     display: flex;
+    position: relative;
    
     width: 100%;
     padding: 10px;
@@ -280,7 +293,56 @@ input[type='checkbox']:checked   {
 
 .veryWhiteColorBackground{
     background-color: $VeryLightGray;
+    background:url('/images/bg-desktop-light.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+
+
+@media screen and (max-width: 767px){
+    body{
+        height: 900px;
+    }
+    .main_container{
+        background: url('/images/bg-mobile-dark.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top;
+        background-color: $VeryDarkBlue;
+        transition: all ease 0.5s;
+    }
+
+    .changeBackgroundInMobileLight{
+        background: url('/images/bg-mobile-light.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top;
+           
+    }
+
+    .todo_details{
+
+        .filter{
+            position: absolute;
+            bottom:-80px;
+            left: 0;
+            // border: 2px solid red;
+            border-radius: 10px;
+            height: 60px;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+            background-color:$VeryDarkGrayishBlue ;
+        }
+
+        .filter_mobile{
+            background-color:$white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    }
+}
+
 
 
 
